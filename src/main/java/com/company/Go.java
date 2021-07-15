@@ -10,7 +10,7 @@ public class Go {
                 Car car = allCars.get(i);
                 int row = car.randRow;
                 int col = car.randCol;
-                int locked = 5000;
+                int locked = 0;
 
 
 

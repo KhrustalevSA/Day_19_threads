@@ -1,7 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Random;
+        import java.util.ArrayList;
+        import java.util.Random;
 
 public class Car extends Thread{
     String name;
@@ -17,15 +17,18 @@ public class Car extends Thread{
     Go go = new Go();
     String num;
 
-    Car(String name,Bridge bridge,ArrayList<Car> allCars){
+    Car(String name,Bridge bridge,ArrayList<Car> allCars,int row,int col){
         this.name = name;
         this.num = name;
         this.bridge = bridge;
         this.allCars = allCars;
+        this.randRow = row;
+        this.randCol = col;
 
     }
     public synchronized void run()  {
         while (randValue) {
+
             randRow = random.nextInt(2 + 1);
             randCol = random.nextInt(8 + 1);
 
@@ -47,7 +50,7 @@ public class Car extends Thread{
                     name = name + "►";
 
                 try {
-                    sleep( (long) (Math.random() * 1000) );
+                    sleep( (long) (Math.random() * 0) );
                 } catch (InterruptedException e){
                     System.out.println("InterruptedException is catched");
                 }
@@ -61,15 +64,16 @@ public class Car extends Thread{
 
         }
         bridge.printBridge();
-        while (drive != 3000) {
+        while (drive != 300000000) {
             try {
+                sleep(3000);
                 go.go(allCars, name);
             } catch (InterruptedException e) {
                 System.out.println("Exception catched");
             }
 
 
-        drive++;
+            drive++;
         }
 
     }
