@@ -16,7 +16,7 @@ public class Go {
 
 
 
-                if (row == 0 && col == 0){
+                if (row == 0 && col == 0){                                                                                  //Множество if конструкций для одного шага машины
                     Thread.sleep( (long) (locked) );
 
                     while (car.bridge.bridge[2][0] != car.bridge.dot) {

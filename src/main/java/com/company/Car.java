@@ -17,13 +17,11 @@ public class Car extends Thread{
     Go go = new Go();
     String num;
 
-    Car(String name,Bridge bridge,ArrayList<Car> allCars,int row,int col){
+    Car(String name,Bridge bridge,ArrayList<Car> allCars){
         this.name = name;
         this.num = name;
         this.bridge = bridge;
         this.allCars = allCars;
-        this.randRow = row;
-        this.randCol = col;
 
     }
     public synchronized void run()  {
@@ -38,7 +36,7 @@ public class Car extends Thread{
 
                 bridge.bridge[randRow][randCol] = "~";
 
-                if (randRow == 0 && randCol < 3)
+                if (randRow == 0 && randCol < 3)        // Присвоение имени машине
                     name = "◄" + name;
                 if (randRow == 0 && randCol > 5)
                     name = "◄" + name;
@@ -49,11 +47,6 @@ public class Car extends Thread{
                 if (randRow == 1 && (randCol > 2 && randCol < 6))
                     name = name + "►";
 
-                try {
-                    sleep( (long) (Math.random() * 0) );
-                } catch (InterruptedException e){
-                    System.out.println("InterruptedException is catched");
-                }
 
                 bridge.bridge[randRow][randCol] = name;
 
@@ -66,7 +59,7 @@ public class Car extends Thread{
         bridge.printBridge();
         while (drive != 300000000) {
             try {
-                sleep(3000);
+                sleep(2200);
                 go.go(allCars, name);
             } catch (InterruptedException e) {
                 System.out.println("Exception catched");

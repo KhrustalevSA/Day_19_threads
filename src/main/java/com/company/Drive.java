@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Drive {
     Bridge bridge = new Bridge();
     ArrayList<Car> allCars = new ArrayList<>();
-    Car car0 = new Car("0",bridge,allCars,0,0);
-    Car car1 = new Car("1",bridge,allCars,2,1);
-    Car car2 = new Car("2",bridge,allCars,1,5);
-    Car car3 = new Car("3",bridge,allCars,0,2);
-    Car car4 = new Car("4",bridge,allCars,2,8);
-    Car car5 = new Car("5",bridge,allCars,0,7);
+    Car car0 = new Car("0",bridge,allCars);
+    Car car1 = new Car("1",bridge,allCars);
+    Car car2 = new Car("2",bridge,allCars);
+    Car car3 = new Car("3",bridge,allCars);
+    Car car4 = new Car("4",bridge,allCars);
+    Car car5 = new Car("5",bridge,allCars);
 
 
     Drive(){
