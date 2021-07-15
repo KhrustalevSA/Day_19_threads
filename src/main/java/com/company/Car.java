@@ -13,10 +13,15 @@ public class Car extends Thread{
     int randRow;
     int randCol;
     boolean randValue = true;
+    ArrayList<Car> allCars;
+    Go go = new Go();
+    String num;
 
-    Car(String name,Bridge bridge){
+    Car(String name,Bridge bridge,ArrayList<Car> allCars){
         this.name = name;
+        this.num = name;
         this.bridge = bridge;
+        this.allCars = allCars;
 
     }
     public synchronized void run()  {
@@ -42,7 +47,7 @@ public class Car extends Thread{
                     name = name + "►";
 
                 try {
-                    sleep( (long) (Math.random() * 10000) );
+                    sleep( (long) (Math.random() * 1000) );
                 } catch (InterruptedException e){
                     System.out.println("InterruptedException is catched");
                 }
@@ -55,12 +60,17 @@ public class Car extends Thread{
 
 
         }
-
-
-
-
-
         bridge.printBridge();
+        while (drive != 3000) {
+            try {
+                go.go(allCars, name);
+            } catch (InterruptedException e) {
+                System.out.println("Exception catched");
+            }
+
+
+        drive++;
+        }
 
     }
 }

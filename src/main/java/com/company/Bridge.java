@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Bridge {
     String dot = ".";
     String spaceZero = "";
@@ -26,4 +28,16 @@ public class Bridge {
         }
         return false;
     }
+
+    public String someCarOnBridge() {
+        if (!bridgeIsEmpty()) {
+            if (bridge[1][3].contains("►") || bridge[1][4].contains("►") || bridge[1][5].contains("►")){
+                return "Right";
+            } else {
+                return "Left";
+            }
+        }
+        return "";
+    }
+
 }
